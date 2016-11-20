@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<% if user_signed_in? %>
+  <div class="logout_wrapper">
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  </div>
+<% end %>
+
 <!--***************** 下記を追加 ****************-->
 <p class="notice"><%= notice %></p>
 <!--*********************************************-->
