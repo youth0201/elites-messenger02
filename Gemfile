@@ -43,6 +43,8 @@ gem 'twitter-bootstrap-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
+   gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
 end
 
 group :development do
