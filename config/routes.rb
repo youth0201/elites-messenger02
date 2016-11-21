@@ -10,7 +10,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   #--********************** 下記を追加 *******************
-  resources :timelines
+  #resources :timelines
+  
+  resources :timelines do
+    collection do
+      post 'filter_by_user'
+    end
+  end
   #--*****************************************************
   
   # The priority is based upon order of creation: first created -> highest priority.

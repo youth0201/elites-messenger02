@@ -31,6 +31,10 @@ div.timeline_wrapper {
         background-color: #C1EFFF;
       }
 
+      &.reply {
+        margin-top: -20px;
+      }
+      
       p {
         margin: 0;
       }
@@ -49,6 +53,25 @@ div.timeline_wrapper {
         width: 500px;
         vertical-align: top;
       }
+      
+      div.operation {
+        display: inline-block;
+        button {
+          margin-bottom: 3px;
+        }
+        form.button_to {
+          input.btn {
+            width: 50px;
+          }
+        }
+      }
+    }
+  }
+  
+  div.user_filter {
+    margin-bottom: 20px;
+    div.actions {
+      text-align: right;
     }
   }
 }
