@@ -19,9 +19,12 @@
         <%= button_to 'Del', timeline_path(t), method: :delete, class: 'btn btn-danger', data: {confirm: '削除してよろしいですか？'}  %>
       </div>
   <% else %>
-      <%= link_to root_path(reply_id: t.id) do %>
+      <div class="operation">
+        <%= link_to root_path(reply_id: t.id) do %>
           <%= button_tag 'Re', class: 'btn btn-info' %>
-      <% end %>
+        <% end %>
+        <%= button_to 'Like', '/likes', method: :post, class: 'btn btn-danger' %> 
+      </div>
   <% end %>
 </div>
 <% t.replies.each do |r| %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post '/likes' => 'likes#create'
+
   #get 'timelines/index'
 
   #--********************* 下記を追加 *********************
