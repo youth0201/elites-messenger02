@@ -23,9 +23,29 @@
         <%= link_to root_path(reply_id: t.id) do %>
           <%= button_tag 'Re', class: 'btn btn-info' %>
         <% end %>
-        <%= button_to 'Like', '/likes', method: :post, class: 'btn btn-danger' %> 
+        
+        <% is_liked = false %>
+        
+        <% t.likes.each do |like| %>
+         <% if like.user_id == current_user.id %>
+           <% is_liked = true %>
+         <% end %>
+        <% end %>
+        
+        <!-- 1度、いいね! をしているコメントにはLikeボタンを表示させない -->
+        <% if is_liked == false %>
+          <%= button_to 'Like', timeline_likes_path(t), method: :post, class: 'btn btn-danger' %>
+        <% end %>
       </div>
   <% end %>
+  
+   <% if t.likes.count != 0 %>
+    <p class="like_data">
+      <%= t.likes.map(&:user).map(&:name).join(' と ') %> がいいね！と言っています。
+    </p>
+    <%= t.likes.count %> いいね！
+  <% end %>
+  
 </div>
 <% t.replies.each do |r| %>
     <%= render 'timelines/timeline', t: r, is_reply: true %>

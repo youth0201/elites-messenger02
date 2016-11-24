@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post '/likes' => 'likes#create'
+  #post '/likes' => 'likes#create'
 
   #get 'timelines/index'
 
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     collection do
       post 'filter_by_user'
     end
+    resources :likes, only: [:create]
   end
   #--*****************************************************
   
