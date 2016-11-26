@@ -3,7 +3,9 @@ class Timeline < ActiveRecord::Base
     
     has_many   :replies, class_name: 'Timeline', foreign_key: 'reply_id', dependent: :destroy
     
-    validates :message, presence: true, allow_blank: false
+    has_many   :likes, foreign_key: 'timeline_id'
+    
+    validates :message, presence: true, allow_blank: false, length: { maximum: 140 }
     
     scope :user_filter, -> user_id do
       # user_idパラメータがあればフィルターをかける

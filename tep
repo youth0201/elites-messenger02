@@ -1,0 +1,30 @@
+
+[1mFrom:[0m /home/ubuntu/workspace/elites-messenger02/app/controllers/timelines_controller.rb @ line 23 TimelinesController#create:
+
+    [1;34m17[0m: [32mdef[0m [1;34mcreate[0m
+    [1;34m18[0m:   timeline = [1;34;4mTimeline[0m.new
+    [1;34m19[0m:   timeline.attributes = input_message_param
+    [1;34m20[0m:   timeline.user_id = current_user.id
+    [1;34m21[0m: 
+    [1;34m22[0m:   binding.pry
+ => [1;34m23[0m:   puts([31m[1;31m"[0m[31mXXXXXX[1;31m"[0m[31m[0m)
+    [1;34m24[0m:   
+    [1;34m25[0m:   [32mif[0m timeline.valid? [1;34m# バリデーションチェック[0m
+    [1;34m26[0m:     timeline.save!
+    [1;34m27[0m:   [32melse[0m
+    [1;34m28[0m:     flash[[33m:alert[0m] = timeline.errors.full_messages
+    [1;34m29[0m:   [32mend[0m
+    [1;34m30[0m:   [32munless[0m request.format.json?
+    [1;34m31[0m:     redirect_to [35maction[0m: [33m:index[0m
+    [1;34m32[0m:   [32melse[0m
+    [1;34m33[0m:         [32mif[0m timeline.valid? [1;34m# バリデーションチェック[0m
+    [1;34m34[0m:     timeline.save!
+    [1;34m35[0m:   [32melse[0m
+    [1;34m36[0m:     flash[[33m:alert[0m] = timeline.errors.full_messages
+    [1;34m37[0m:   [32mend[0m
+    [1;34m38[0m:     [1;34m# ajaxの場合のレスポンス[0m
+    [1;34m39[0m:     html = render_to_string [35mpartial[0m: [31m[1;31m'[0m[31mtimelines/timeline[1;31m'[0m[31m[0m, [35mlayout[0m: [1;36mfalse[0m, [35mformats[0m: [33m:html[0m, [35mlocals[0m: { [35mt[0m: timeline }
+    [1;34m40[0m:     render [35mjson[0m: {[35mtimeline[0m: html}
+    [1;34m41[0m:   [32mend[0m
+    [1;34m42[0m: [32mend[0m
+
